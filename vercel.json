@@ -1,15 +1,11 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/spa",
+  "rewrites": [
     {
-      "src": "dist/server/node-build.mjs",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/server/node-build.mjs"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     }
   ]
 }
